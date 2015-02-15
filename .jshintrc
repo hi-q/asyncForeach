@@ -1,0 +1,13 @@
+{
+	"strict": true,
+	"unused": true,
+	"laxcomma": true,
+
+	"strict": true,
+
+	"browser": true,
+
+	"globals": {
+		"QUnit": true
+	}
+}

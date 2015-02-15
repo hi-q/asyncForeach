@@ -1,36 +1,36 @@
-'use strict';
-
 var moduleName = 'asyncForeach';
 
 QUnit.config.module = moduleName;
 QUnit.module(moduleName);
 
 QUnit.test( "Garbage test", function(assert) {
-  var 
-  	  garbageTestData = [
-  		  0
-  		, Number.MAX_VALUE
-  		, Number.MIN_VALUE
-  		, Number.EPSILON
-  		, NaN
-  		, Number.POSITIVE_INFINITY
-  		, Number.NEGATIVE_INFINITY
-  		
-  		, ""
+	'use strict';
 
-  		, true
-  		, false
+	  var 
+	  	  garbageTestData = [
+	  		  0
+	  		, Number.MAX_VALUE
+	  		, Number.MIN_VALUE
+	  		, Number.EPSILON
+	  		, NaN
+	  		, Number.POSITIVE_INFINITY
+	  		, Number.NEGATIVE_INFINITY
+	  		
+	  		, ""
 
-  		, Date.prototype //invalid date
-  		, new Date()
+	  		, true
+	  		, false
 
-  		, (function (i) { return i; })
+	  		, Date.prototype //invalid date
+	  		, new Date()
 
-  		, ({})
+	  		, (function (i) { return i; })
 
-  		, null
-  		, undefined
-  	]
+	  		, ({})
+
+	  		, null
+	  		, undefined
+	  	]
   	;
 
 	garbageTestData.forEach(function(garbage) {
@@ -44,21 +44,26 @@ QUnit.test( "Garbage test", function(assert) {
 });
 
 QUnit.test( "Aborted iteration test", function(assert) { 
+	'use strict';
 
 	var array = [1, 2, 3];
 
 	asyncForeach(array, function(item, index, done) {
+		/*jshint unused:false*/
+		
 		return false;
 	}, generateAssertEndCalled(assert, array));
 
 });
 
 QUnit.test( "Array test", function(assert) { 
+	'use strict';
 
 	var array = [1, 2, 3];
 
 	asyncForeach(array, function(item, index, done) {
-
+		/*jshint unused:false*/
+		
 		setTimeout(function() {
 			console.log(item);
 			done();
@@ -69,6 +74,8 @@ QUnit.test( "Array test", function(assert) {
 });
 
 function generateAssertEndCalled(assert, array) {
+	'use strict';
+
 	var  testDone = assert.async();
 
 	return function () {

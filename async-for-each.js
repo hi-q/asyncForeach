@@ -1,8 +1,9 @@
-'use strict';
-
 var debug = false;
 
+/* exported asyncForeach */
+
 function asyncForeach(array, eachFn, endFn) {
+	'use strict';
 
 	array = array || [];
 
