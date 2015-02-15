@@ -1,4 +1,15 @@
 # asyncForeach
+
+asyncForeach([1, 2, 3], function(item, index, done) {
+    setTimeout(function() {
+        console.log(item);
+        done();
+    }, 1000);
+}, function() {
+    console.log('end');
+});
+
+
 Для asyncForeach по аналогии с нативным Array.prototype.forEach функции-callback’и я не проверяю. 
 Если пользователь не предоставил - сам себе виноват, получит undefined is not a function.
 Для любых типов кроме Array не выполнится ни одной итерации и мы попадем в endFn.
