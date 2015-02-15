@@ -1,5 +1,6 @@
 # asyncForeach
 
+```
 asyncForeach([1, 2, 3], function(item, index, done) {
     setTimeout(function() {
         console.log(item);
@@ -8,7 +9,7 @@ asyncForeach([1, 2, 3], function(item, index, done) {
 }, function() {
     console.log('end');
 });
-
+```
 
 Для asyncForeach по аналогии с нативным Array.prototype.forEach функции-callback’и я не проверяю. 
 Если пользователь не предоставил - сам себе виноват, получит undefined is not a function.
